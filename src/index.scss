@@ -1,0 +1,37 @@
+@import url("https://fonts.cdnfonts.com/css/avenir");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Work Sans", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@font-face {
+  font-family: "Avenir Bold"; /*Can be any text*/
+  src: local("AvenirNextLTPro-Bold"),
+    url("./assets/fonts/AvenirNextLTPro-Bold.otf") format("truetype");
+}
+@font-face {
+  font-family: "Avenir Light"; /*Can be any text*/
+  src: local("AvenirNextLTPro-lt"),
+    url("./assets/fonts/AvenirNextLTPro-It.otf") format("truetype");
+}
+@font-face {
+  font-family: "Avenir Regular"; /*Can be any text*/
+  src: local("AvenirNextLTPro-Regular"),
+    url("./assets/fonts/AvenirNextLTPro-Regular.otf") format("truetype");
+}

@@ -1,0 +1,60 @@
+.card {
+  width: 22%;
+  height: 160px;
+  background: #ffffff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  padding: 20px 30px;
+  gap: 14px;
+
+  &_icon_users {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(223, 24, 255, 0.1);
+    border-radius: 9999px;
+  }
+  &_icon_active {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(87, 24, 255, 0.1);
+    border-radius: 9999px;
+  }
+  &_icon_loans {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(245, 95, 68, 0.1);
+    border-radius: 9999px;
+  }
+  &_icon_savings {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 51, 102, 0.1);
+    border-radius: 9999px;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 14px;
+    color: #545f7d;
+    margin: 14px 0;
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 24px;
+    color: #213f7d;
+  }
+}

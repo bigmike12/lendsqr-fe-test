@@ -1,0 +1,150 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Work Sans";
+  background-color: transparent;
+  position: relative;
+
+  &__header {
+    height: to-rem(40);
+    background-color: white;
+
+    &_row-item {
+      display: flex;
+      gap: 10px;
+    }
+
+    &_row > td {
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 12px;
+      color: #545f7d;
+    }
+  }
+
+  &__body {
+    &_row {
+      padding: 23px 0;
+      height: 62px;
+      border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+      &-inactive {
+        border-radius: 100px;
+        padding: 7px 13px;
+        background: rgba(84, 95, 125, 0.06);
+        text-align: center;
+        color: #545f7d;
+      }
+      &-blacklisted {
+        border-radius: 100px;
+        padding: 7px 12px;
+        background: rgba(228, 3, 59, 0.1);
+        text-align: center;
+        color: #e4033b;
+      }
+      &-active {
+        border-radius: 100px;
+        padding: 7px 14px;
+        background: rgba(57, 205, 98, 0.06);
+        text-align: center;
+        color: #39cd62;
+      }
+      &-pending {
+        border-radius: 100px;
+        padding: 7px 18px;
+        background: rgba(233, 178, 0, 0.1);
+        text-align: center;
+        color: #e9b200;
+      }
+
+      &-last {
+        width: 5%;
+        text-align: right;
+      }
+    }
+    &_row > td {
+      font-weight: 400;
+      font-size: 14px;
+      color: #545f7d;
+    }
+    &_row > tr:nth-child(1) {
+      margin-top: 20px;
+    }
+  }
+}
+
+.container {
+  position: absolute;
+  width: 270px;
+  height: 600px;
+  background: #ffffff;
+  z-index: 20;
+  top: 465px;
+  left: 358px;
+}
+.filter {
+  padding: 30px 20px;
+  border: 1px solid rgba(84, 95, 125, 0.14);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+  gap: 20px;
+
+  &_item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    label {
+      font-weight: 500;
+      font-size: 14px;
+      color: #545f7d;
+      margin-bottom: 6px;
+    }
+
+    select,
+    input {
+      padding: 12px 20px;
+      background: #ffffff;
+      opacity: 0.2;
+      border: 1px solid #213f7d;
+      border-radius: 8px;
+    }
+
+    [type="date"] {
+      background: #fff url("../../../assets/svg/calendar.svg") 97% 50% no-repeat;
+    }
+    [type="date"]::-webkit-inner-spin-button {
+      display: none;
+    }
+    [type="date"]::-webkit-calendar-picker-indicator {
+      opacity: 0;
+    }
+  }
+
+  &_buttons {
+    &-reset {
+      width: 98px;
+      height: 40px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: #545f7d;
+      border: 1px solid #545f7d;
+      border-radius: 8px;
+      background: transparent;
+      margin-right: 14px;
+    }
+
+    &-filter {
+      width: 98px;
+      height: 40px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      background: #39cdcc;
+      border: 1px solid #39cdcc;
+      border-radius: 8px;
+    }
+  }
+}

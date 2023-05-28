@@ -1,0 +1,13 @@
+.content {
+  display: flex;
+  width: 100%;
+
+  &_sidebar {
+    width: 283px;
+  }
+
+  &_children {
+    padding: 60px;
+    width: calc(100% - 283px);
+  }
+}
