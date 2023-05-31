@@ -6,6 +6,7 @@
   border-collapse: collapse;
   font-family: "Work Sans";
   background-color: transparent;
+  position: relative;
 
   &__header {
     height: to-rem(40);
@@ -115,6 +116,12 @@
   z-index: 20;
   top: 485px;
   left: 358px;
+
+  @include media("<=tablet") {
+    position: absolute;
+    top: 680px;
+    left: 33px;
+  }
 }
 .filter {
   padding: 30px 20px;

@@ -12,7 +12,6 @@ const Layout = ({ children }) => {
   };
 
   const nodeToggle = useClickOutside(() => {
-    console.log("toggle");
     setToggle(true);
   });
 

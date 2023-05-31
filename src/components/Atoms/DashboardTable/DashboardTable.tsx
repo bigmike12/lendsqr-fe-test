@@ -65,7 +65,6 @@ export const TableFilter = ({ node }: any) => {
 export const TableOptions = ({ node, selectedUser }: any) => {
   let navigate = useNavigate();
   const handleSelectUser = (index: number) => {
-    console.log("index", index);
     navigate(`/dashboard/${index}`);
   };
   return (

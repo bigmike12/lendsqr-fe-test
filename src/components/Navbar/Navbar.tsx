@@ -11,7 +11,7 @@ const { Search } = Input;
 
 const Navbar = ({handleToggle}:any) => {
   // const navigate = useNavigate();
-  const onSearch = (value: string) => console.log(value);
+  const onSearch = (value: string) => value;
 
   return (
     <>
