@@ -14,8 +14,9 @@ const Login = () => {
         <div className="login_logo">
           <Icon name="logo" />
         </div>
-        <img src={LoginImage} alt="login" />
+        <img src={LoginImage} alt="login" className="login_left__image"/>
       </div>
+      
       <div className="login_right">
         <h2>Welcome!</h2>
         <p>Enter details to login.</p>

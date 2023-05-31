@@ -1,3 +1,5 @@
+@import "../../../styles/shared-styles.scss";
+
 .card {
   width: 22%;
   height: 160px;
@@ -7,6 +9,10 @@
   border-radius: 4px;
   padding: 20px 30px;
   gap: 14px;
+
+  @include media("<=tablet") {
+    width: 100%;
+  }
 
   &_icon_users {
     height: 40px;

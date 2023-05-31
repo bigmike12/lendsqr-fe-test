@@ -47,6 +47,39 @@ const UserDashBoard = () => {
         </div>
       </div>
 
+      <div className="details_mobile">
+        <div className="details_mobile_flex">
+          <div className="details_mobile__name">
+            <div className="details_mobile__name-avatar">
+              <Icon name="defaultAvatar" />
+            </div>
+            <div>
+              <h1>{`${user?.profile.firstName} ${user?.profile.lastName}`}</h1>
+              <p>{user?.accountNumber}</p>
+            </div>
+            <div className="details_mobile__tier">
+              <Icon name="starFill" />
+              <Icon name="star" />
+              <Icon name="star" />
+            </div>
+          </div>
+        </div>
+
+        <div className="details_mobile__nav">
+          {isNotEmptyArray(navData) &&
+            navData.map((data) => (
+              <p
+                key={data.id}
+                className={
+                  data.id === selectedNav ? "details_controls__nav-active" : ""
+                }
+              >
+                {data.title}
+              </p>
+            ))}
+        </div>
+      </div>
+
       <div className="details_controls">
         <div className="details_controls_flex">
           <div className="details_controls__name">

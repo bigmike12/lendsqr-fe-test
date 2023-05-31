@@ -1,3 +1,5 @@
+@import "../../styles/shared-styles.scss";
+
 .details {
   &_top {
     &__nav {
@@ -20,14 +22,30 @@
       align-items: center;
       justify-content: space-between;
 
+      @include media("<=tablet") {
+        display: flex;
+        flex-direction: column;
+      }
+
       h1 {
         font-weight: 500;
         font-size: 24px;
         color: #213f7d;
         cursor: default;
+
+        @include media("<=tablet") {
+          display: flex;
+          justify-content: flex-end;
+        }
       }
 
       &_buttons {
+        @include media("<=tablet") {
+          margin-top: 20px;
+          display: flex;
+          justify-content: space-between;
+        }
+
         &-blacklist {
           padding: 12px 16px;
           font-weight: 600;
@@ -41,6 +59,10 @@
           margin-right: 20px;
           letter-spacing: 0.1em;
           font-family: "Work Sans", "Helvetica Neue", Helvetica, Arial;
+
+          @include media("<=tablet") {
+            font-size: 10px;
+          }
         }
 
         &-activate {
@@ -55,7 +77,87 @@
           background-color: #fff;
           letter-spacing: 0.1em;
           font-family: "Work Sans", "Helvetica Neue", Helvetica, Arial;
+
+          @include media("<=tablet") {
+            font-size: 10px;
+          }
         }
+      }
+    }
+  }
+
+  &_mobile {
+    background: #ffffff;
+    border: 1px solid rgba(33, 63, 125, 0.06);
+    box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    padding: 30px 30px 0 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include media(">=tablet") {
+      display: none;
+    }
+
+    &_flex {
+      display: flex;
+    }
+
+    &__name {
+      padding-right: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      &-avatar {
+        width: 100px;
+        height: 100px;
+        background: rgba(33, 63, 125, 0.16);
+        border-radius: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+      }
+
+      h1 {
+        font-weight: 500;
+        font-size: 22px;
+        color: #213f7d;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        color: #545f7d;
+      }
+    }
+
+    &__nav {
+      overflow-x: scroll;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+
+      p {
+        font-weight: 400;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 0 16px 0px 16px;
+        text-align: center;
+
+
+        &:hover {
+          color: #39cdcc;
+          border-bottom: 2px solid #39cdcc;
+        }
+      }
+
+      &-active {
+        color: #39cdcc;
+        border-bottom: 2px solid #39cdcc;
       }
     }
   }
@@ -68,6 +170,10 @@
     padding: 30px 30px 0 30px;
     display: flex;
     flex-direction: column;
+
+    @include media("<=tablet") {
+      display: none;
+    }
 
     &_flex {
       display: flex;

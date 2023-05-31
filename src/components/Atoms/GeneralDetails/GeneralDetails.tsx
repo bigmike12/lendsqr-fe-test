@@ -48,25 +48,24 @@ const GeneralDetails: React.FC<Props> = ({ user }) => {
               <h3>Gender</h3>
               <p>{user?.profile.gender}</p>
             </div>
-            <div className="details_info__data-bottom">
-              <div>
-                <h3>Marital status</h3>
-                <p>Single</p>
-              </div>
-              <div>
-                <h3>Children</h3>
-                <p>None</p>
-              </div>
-              <div>
-                <h3>Type of residence</h3>
-                <p>Parent’s Apartment</p>
-              </div>
+
+            <div>
+              <h3>Marital status</h3>
+              <p>Single</p>
+            </div>
+            <div>
+              <h3>Children</h3>
+              <p>None</p>
+            </div>
+            <div>
+              <h3>Type of residence</h3>
+              <p>Parent’s Apartment</p>
             </div>
           </div>
         </div>
         <div className="details_info">
           <h1>Education and Employment</h1>
-          <div className="details_info__data">
+          <div className="details_info__dataTwo">
             <div>
               <h3>level of education</h3>
               <p>{user?.education.level}</p>

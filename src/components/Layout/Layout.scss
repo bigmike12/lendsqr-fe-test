@@ -1,13 +1,41 @@
+@import "../../styles/shared-styles.scss";
+
 .content {
   display: flex;
   width: 100%;
+  position: relative;
+
+  @include media("<=tablet") {
+     display: block;
+  }
+
 
   &_sidebar {
     width: 283px;
+    @include media("<=tablet") {
+      display: none;
+    }
+
+    &2 {
+      width: 283px;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      @include media("<=tablet") {
+        display: block;
+      }
+    }
   }
 
   &_children {
     padding: 60px;
-    width: calc(100% - 283px);
+
+    @include media("<=tablet") {
+      width: 100%;
+      padding: 20px;
+      height: 1284px;
+      overflow-x: auto;
+    }
   }
 }

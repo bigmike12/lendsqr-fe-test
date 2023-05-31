@@ -1,12 +1,24 @@
+@import "../../styles/shared-styles.scss";
+
 .pagination {
   display: flex;
   height: 60px;
   align-items: center;
   justify-content: space-between;
 
+  @include media("<=tablet") {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   &__left {
     display: flex;
     align-items: center;
+
+    @include media("<=tablet") {
+     margin: 20px 0;
+    }
 
     label,
     span {
@@ -35,6 +47,9 @@
   }
 
   &__right {
+    @include media("<=tablet") {
+      margin-bottom: 20px;
+     }
   }
 
   p {
@@ -60,7 +75,7 @@
     }
 
     &_arrowLeft {
-        margin-right: 20px;
+      margin-right: 20px;
     }
 
     // &_arrowRight {

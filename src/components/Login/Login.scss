@@ -7,15 +7,40 @@
   display: flex;
   justify-content: center;
 
-  &_logo { 
+  @include media("<=tablet") {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_logo {
     display: block;
     margin-bottom: 139px;
+
+    @include media("<=tablet") {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+    }
   }
 
   &_left {
     width: 50%;
     margin-left: 100px;
     margin-top: 106px;
+
+    @include media("<=tablet") {
+      margin-left: 0;
+      margin-top: 106px;
+    }
+
+    &__image {
+      @include media("<=tablet") {
+        display: none;
+        margin-left: 0;
+        margin-top: 0;
+      }
+    }
   }
 
   &_right {
@@ -26,6 +51,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include media("<=tablet") {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 0px;
+      width: 80%;
+      padding: 0 20px;
+    }
 
     h2 {
       font-family: "Avenir Bold";
@@ -44,6 +78,10 @@
     &__form {
       margin-top: 60px;
       width: 447px;
+
+      @include media("<=tablet") {
+        width: 100%;
+      }
 
       span {
         font-weight: 600;

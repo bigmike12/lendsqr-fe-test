@@ -22,13 +22,13 @@
     &__data {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px 100px;
+      gap: 30px 55px;
+    }
 
-      &-bottom {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px 120px;
-      }
+    &__dataTwo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px 80px;
     }
 
     h1 {
@@ -49,6 +49,8 @@
       font-weight: 500;
       font-size: 16px;
       color: #545f7d;
+      width: 150px;
+      word-wrap: break-word;
     }
   }
 }
