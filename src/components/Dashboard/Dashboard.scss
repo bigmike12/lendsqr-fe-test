@@ -1,6 +1,13 @@
 .dasboardPage {
   width: 100%;
 
+  h2 {
+    font-weight: 500;
+    font-size: 24px;
+    color: #213f7d;
+    margin-bottom: 40px;
+  }
+
   &_card {
     display: flex;
     justify-content: space-between;
@@ -16,5 +23,6 @@
     padding: 30px;
     height: 440px;
     overflow-y: scroll;
+    height: 640px;
   }
 }

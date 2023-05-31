@@ -1,12 +1,25 @@
 import React, { useState } from "react";
 import "./DashboardTable.scss";
-import { isNotEmptyArray } from "../../../lib/utils/utils";
-import { tableBody, tableHeader } from "../../Dashboard/DashboardData";
+import {
+  formatDateString,
+  formatPhoneNumber,
+  isNotEmptyArray,
+} from "../../../lib/utils/utils";
+import { tableHeader } from "../../Dashboard/DashboardData";
 import Icon from "../../../assets/Icons/icon";
+import { OptionsData } from "./data";
+import useClickOutside from "../../../hooks/useClickOutside";
+import { IAPIData } from "../../../helper/apiDataTypes";
+import { useNavigate } from "react-router-dom";
+import * as CONSTANT from "../../../helper/constants";
 
-export const TableFilter = () => {
+interface Props {
+  tableBody: IAPIData[];
+}
+
+export const TableFilter = ({ node }: any) => {
   return (
-    <div className="container">
+    <div className="container" ref={node}>
       <div className="filter">
         <div className="filter_item">
           <label htmlFor="lendsqr">Organization</label>
@@ -49,16 +62,63 @@ export const TableFilter = () => {
   );
 };
 
-const DashboardTable = () => {
+export const TableOptions = ({ node, selectedUser }: any) => {
+  let navigate = useNavigate();
+  const handleSelectUser = (index: number) => {
+    console.log("index", index);
+    navigate(`/dashboard/${index}`);
+  };
+  return (
+    <div className="options" ref={node}>
+      {isNotEmptyArray(OptionsData) &&
+        OptionsData.map((data) => (
+          <div
+            className="options_item"
+            onClick={() => handleSelectUser(selectedUser)}
+          >
+            <Icon name={data.icon} />
+            <p>{data.title}</p>
+          </div>
+        ))}
+    </div>
+  );
+};
+
+const DashboardTable: React.FC<Props> = ({ tableBody }) => {
   const [filter, setFilter] = useState<boolean>(false);
+  const [option, setOption] = useState<string>("");
+  const [optionToggle, setOptionToggle] = useState<boolean>(false);
+  const [selectedUser, setSelectedUser] = useState<string>();
 
   const handleFilter = () => {
     setFilter(!filter);
   };
 
+  const handleOption = (index: string) => {
+    setOption(index);
+    setOptionToggle(!optionToggle);
+    setSelectedUser(index);
+
+    if (index) {
+      fetch(`${CONSTANT.BASEURL}/${index}`)
+        .then((res) => res.json())
+        .then((data) => {
+          localStorage.setItem(CONSTANT.USERDATA, JSON.stringify(data));
+        });
+    }
+  };
+
+  const nodeFilter = useClickOutside(() => {
+    setFilter(false);
+  });
+
+  const nodeOption = useClickOutside(() => {
+    setOptionToggle(false);
+  });
+
   return (
     <div>
-      {filter && <TableFilter />}
+      {filter && <TableFilter node={nodeFilter} />}
       <table className="table">
         <thead className="table__header">
           <tr className="table__header_row">
@@ -81,15 +141,19 @@ const DashboardTable = () => {
         </thead>
         <tbody className="table__body">
           {isNotEmptyArray(tableBody) &&
-            tableBody.map((data) => {
-              const status = data.status;
+            tableBody.map((data, index) => {
+              const status = data.userName;
               return (
-                <tr className="table__body_row">
-                  <td>{data.organization}</td>
-                  <td>{data.username}</td>
-                  <td>{data.email}</td>
-                  <td>{data.phone}</td>
-                  <td>{data.date}</td>
+                <tr className="table__body_row" key={index}>
+                  <td className="table__body_row-org">{data.orgName}</td>
+                  <td className="table__body_row-name">{data.userName}</td>
+                  <td className="table__body_row-email">{data.email}</td>
+                  <td className="table__body_row-phone">
+                    {formatPhoneNumber(data.phoneNumber)}
+                  </td>
+                  <td className="table__body_row-date">
+                    {formatDateString(data.createdAt)}
+                  </td>
                   <td>
                     <div
                       className={
@@ -102,12 +166,21 @@ const DashboardTable = () => {
                           : "table__body_row-active"
                       }
                     >
-                      {data.status}
+                      {/* {data.userName} */}
                     </div>
                   </td>
-                  <td className="table__body_row-last">
+                  <td
+                    className="table__body_row-last"
+                    onClick={() => handleOption(data.id)}
+                  >
                     <Icon name="options" />
                   </td>
+                  {optionToggle && option === data.id && (
+                    <TableOptions
+                      node={nodeOption}
+                      selectedUser={selectedUser}
+                    />
+                  )}
                 </tr>
               );
             })}

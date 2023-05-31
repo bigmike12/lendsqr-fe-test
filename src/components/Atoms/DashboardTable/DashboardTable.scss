@@ -1,13 +1,17 @@
 .table {
   width: 100%;
+  height: 100%;
   border-collapse: collapse;
   font-family: "Work Sans";
   background-color: transparent;
-  position: relative;
 
   &__header {
     height: to-rem(40);
     background-color: white;
+
+    &_row {
+      height: 40px;
+    }
 
     &_row-item {
       display: flex;
@@ -27,6 +31,7 @@
       padding: 23px 0;
       height: 62px;
       border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+      position: relative;
 
       &-inactive {
         border-radius: 100px;
@@ -57,9 +62,26 @@
         color: #e9b200;
       }
 
+      &-org {
+        width: 15%;
+        padding-right: 10px;
+      }
+      &-name {
+        width: 15%;
+      }
+
+      &-email {
+        width: 20%;
+      }
       &-last {
         width: 5%;
         text-align: right;
+      }
+      &-phone {
+        width: 15%;
+      }
+      &-date {
+        width: 20%;
       }
     }
     &_row > td {
@@ -79,7 +101,7 @@
   height: 600px;
   background: #ffffff;
   z-index: 20;
-  top: 465px;
+  top: 485px;
   left: 358px;
 }
 .filter {
@@ -145,6 +167,34 @@
       background: #39cdcc;
       border: 1px solid #39cdcc;
       border-radius: 8px;
+    }
+  }
+}
+
+.options {
+  background: #ffffff;
+  z-index: 20;
+  border: 1px solid rgba(84, 95, 125, 0.04);
+  box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+  position: absolute;
+  right: 52px;
+  width: 180px;
+  height: 130px;
+
+  &_item {
+    display: flex;
+    padding: 13.5px 21px;
+
+    p {
+      font-weight: 500;
+      font-size: 14px;
+      color: #545f7d;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    &:hover {
+      background: rgba(57, 205, 204, 0.06);
     }
   }
 }

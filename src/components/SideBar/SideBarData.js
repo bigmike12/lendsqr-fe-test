@@ -90,4 +90,22 @@ export const sideBarData = [
     icon: "reports",
     link: "#",
   },
+  {
+    header: "SETTINGS",
+  },
+  {
+    title: "Preferences",
+    icon: "preferences",
+    link: "#",
+  },
+  {
+    title: "Fees and Pricing",
+    icon: "pricing",
+    link: "#",
+  },
+  {
+    title: "Audit Logs",
+    icon: "audit",
+    link: "#",
+  },
 ];
